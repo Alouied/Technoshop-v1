@@ -1,0 +1,24 @@
+<div class="login-box">
+    <form  [formGroup]="ProductRegistrationForm">
+        <div class="user-box">
+            <input required placeholder="" type="text" class="input" formControlName="name" [(ngModel)]="productDTO.name">
+            <label>Product name</label>
+        </div>
+        <div class="user-box">
+            <input required placeholder="" type="text" class="input" formControlName="price" [(ngModel)]="productDTO.price">
+            <label>Product Price</label>
+        </div>
+        <div class="user-box">
+            <input type="text" name="product_description"  formControlName="description" [(ngModel)]="productDTO.description"    required >
+            <label for="textarea">Product Description</label>
+        </div>
+        <div class="user-box">
+            <input accept=".jpg, .jpeg, .png, .gif, .pdf" name="arquivo" formControlName="image" id="arquivo" type="file" [(ngModel)]="productDTO.photo">
+            <label for="product_image">Product Image</label>
+        </div>
+        <a (click)="addProduct()">
+            SEND
+            <span></span>
+        </a>
+    </form>
+</div>

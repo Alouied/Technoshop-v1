@@ -1,0 +1,79 @@
+<mat-sidenav-container class="example-container" >
+  
+  <mat-sidenav   #side opened="false">
+   <div class="side-top">
+     <mat-icon >person</mat-icon>
+     <span>Tekno</span><span>Shop</span>
+   </div>
+   <div class="profile-side-container">
+       <img class="img" src="https://colorlib.com/polygon/gentelella/images/img.jpg" alt="">
+       <div class="profile-side-container-txt">
+         <span>welcome ,</span>
+         <span>name user </span>
+       </div>
+   </div>
+   <mat-list >  
+     <mat-list-item >
+       <span class="title">general</span>
+     </mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item routerLink="/gerervendeur" class="hover"  (click)="changeretat('Gerer les vendeurs')"> 
+       <div >
+         <mat-icon>supervised_user_circle</mat-icon>
+         <span>Gerer les vendeurs</span> 
+       </div>
+     </mat-list-item>
+     <mat-list-item routerLink="/gererproduit" class="hover" (click)="changeretat('Gerer les produits')"> 
+       <div >
+         <mat-icon>view_in_ar</mat-icon>
+       <span>Gerer les produits</span>
+       </div>
+        
+     </mat-list-item>
+     
+     <mat-list-item >
+       <span class="title">profile</span>
+     </mat-list-item>
+     <mat-divider></mat-divider>
+     <mat-list-item routerLink="/parametre" class="hover" (click)="changeretat('Parametre de compte')">
+       <div>
+        <mat-icon>manage_accounts</mat-icon>
+       <span>Parametre de compte </span> 
+       </div>    
+     </mat-list-item>
+     <mat-list-item routerLink="/parametre" class="hover" (click)="changeretat('Parametre de boutique')">
+       <div>
+         <mat-icon> store_mall_directory</mat-icon>
+       <span>Parametre de boutique </span> 
+       </div>    
+     </mat-list-item>
+     <mat-list-item class="hover"> 
+       <div>
+         <mat-icon>logout</mat-icon>
+       <span>Se deconnecte </span>
+       </div>
+        
+     </mat-list-item>
+   </mat-list>  
+ </mat-sidenav>
+
+ <mat-sidenav-content>
+   <mat-toolbar [class.fixed]="!side.opened" >
+     <button (click)="side.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="!side.opened">
+       <mat-icon>menu</mat-icon>
+     </button>
+     <button (click)="side.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="side.opened">
+       <mat-icon>close</mat-icon>
+     </button> 
+     <span>{{this.etat}}</span>     
+     <span class="example-spacer"></span>
+     <mat-icon>person</mat-icon>
+     <span>Admin</span>
+   </mat-toolbar>
+
+     <div class="container" [class.contenttab]="!side.opened"> 
+       <router-outlet></router-outlet>
+     </div>
+         
+ </mat-sidenav-content>
+</mat-sidenav-container>
